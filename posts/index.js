@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { randomBytes } = require('crypto');
+const cors = require('cors');
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 const posts = {};
 
@@ -19,6 +21,6 @@ app.post('/posts', (req, res) => {
     res.status(201).send(posts[id]);
 });
 
-app.listen(3000, () => {
-    console.log('Listening on 3000');
+app.listen(4002, () => {
+    console.log('Listening on 4002');
 })
